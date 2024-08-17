@@ -165,8 +165,8 @@ if opcao_selecionada:
                                                                   
           
                                                                          
-              try:
-                for i in range(len(destinos_info)):
+              
+              for i in range(len(destinos_info)):
                         destino_info = destinos_info[i]
                         lat_final, lon_final = map(float, destino_info.split(','))  # Obtém as coordenadas do destino
                         
@@ -224,4 +224,4 @@ if opcao_selecionada:
                 with col3:
                                           metrica3 = st.metric(label="Km Total", value=f'{distancia_total:.2f} Km')
               except:
-                st.info('Problemas')
+               
