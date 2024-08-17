@@ -40,7 +40,8 @@ try:
                                                               if nota['Veículo'] =='Indefinido':
                                                                  veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
                                                               else:
-                                                                   
+                                                                   for item in nota['Veículo']:
+                                                                        carro = 
                                                                    veiculo = 
           if veiculo:
           
