@@ -16,7 +16,7 @@ from streamlit_option_menu import option_menu
 from pprint import pprint
 import datetime
 import Login
-import Criar_Conta
+
 
 
 
