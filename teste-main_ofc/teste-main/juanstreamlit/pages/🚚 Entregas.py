@@ -5,7 +5,11 @@ import time
 
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-
+requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requisicao.json()
+       
+            
+dados = roteiro['bancodedadosroteirooficial']
 
 
 seletor1,seletor2 = st.tabs(['Entregas','Comprovantes'])
@@ -14,11 +18,7 @@ seletor1,seletor2 = st.tabs(['Entregas','Comprovantes'])
 with seletor1:
   if 'fotos' not in st.session_state:
     st.session_state.fotos = []
-  requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-  roteiro = requisicao.json()
-       
-            
-  dados = roteiro['bancodedadosroteirooficial']
+  
          
            # Exibe a seleção da data
   lista_total = [item for item in dados]
