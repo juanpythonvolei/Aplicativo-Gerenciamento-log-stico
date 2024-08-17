@@ -41,10 +41,11 @@ with seletor1:
   images_states = {}
   opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
   if opcao_selecionada_data:
+    try
             for item in dados:      
                                                
                                                roteiro = dados[f'{item}']
-                                               for elemento in roteiro[:-1]:
+                                               for elemento in roteiro:
                                                            nota = roteiro[f'{elemento}']  
                                                            data_emit = nota['Data de Emissão']
                                                            if data_emit == opcao_selecionada_data:
@@ -193,5 +194,7 @@ with seletor1:
                    
                                  
                    else:        
-                                                                             metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
+                          metrica1 = st.metric(label="Total de notas completas", value=len(lista))
+      except:                                                                         
+        pass
 
