@@ -199,4 +199,5 @@ with seletor2:
                                         for elemento in secao:
                                              comprovantes2 = secao[f'{elemento}']
                                              nome = [x[:17].replace('.jpg','') for x in comprovantes2]
+                                             lista.append(y) for y in nome
       st.selctbox(label='',placeholder = 'selecione uma nota',options = lista_comprovantes)
