@@ -83,7 +83,14 @@ with seletor1:# Exibe a seleção da data
                                                                     checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                                   with col2:
                                                                     image = st.camera_input(f"Foto para Nota {numero_nota}", key=f"camera_{numero_nota}")
-                                                                       
+                                                                    if image:
+                                                                         with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
+                                                                             f.write(image.getvalue())
+                                                                         link = f"./captured_image_{numero_nota}.jpg"  
+                                                                    if link not in st.session_state.fotos:  
+                                                                         st.session_state.fotos.append(link)  
+                                                                    else:
+                                                                         pass
                                                                st.success('Entrega Completa')                    
                       except:
                             pass
