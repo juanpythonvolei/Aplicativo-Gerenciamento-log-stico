@@ -83,7 +83,7 @@ with seletor1:# Exibe a seleção da data
                                                                     checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                                   with col2:
                                                                     st.camera_input(f"Foto para Nota {numero_nota}", key=f"camera_{numero_nota}")
-                           st.success('Entrega Completa')           
+                          st.success('Entrega Completa')                 
                       except:
                             pass
                         
