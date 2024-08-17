@@ -122,7 +122,7 @@ try:
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
                                                                requests.post(link2, json=dados2)
-                                           if len(st.session_state.fotos) > 0:                      
+                                           if len(list(set(st.session_state.fotos))) > 0:                      
                                              link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comprovantes.json'
                                              dados3 = {"Comprovantes das fotos": st.session_state.fotos}   
                                              requests.post(link3, json=dados3)
