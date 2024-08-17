@@ -15,6 +15,8 @@ try:
          # Exibe a seleção da data
      lista_total = [item for item in dados]
      lista_nomes = []
+     lista_verificada_sim =[]
+     lista_verificada_nao = []
      lista_nomes_ja_entregaram = []
      lista_destinos = []
      destinos_info = []
@@ -38,12 +40,17 @@ try:
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
                                                               if nota['Veículo'] =='Indefinido':
-                                                                 veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
+                                                                 lista_verificada_nao.append('Indefinido')
+                                                                
                                                               else:
                                                                    for item in nota['Veículo']:
                                                                         carro = nota['Veículo'][f'{item}']
                                                                         lista_nomes_ja_entregaram.append(carro['Veículo'])
-                                                                   veiculo = st.selectbox('',list(set(lista_nomes_ja_entregaram)),index = None,placeholder='Selecione um Veículo')
+                                                                        lista_verificada_sim.append('sim')
+          if 'Indefinido' in lista_verificada_nao:                                                              
+               veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
+          else:
+               veiculo = st.selectbox('',list(set(lista_nomes_ja_entregaram)),index = None,placeholder='Selecione um Veículo')
           if veiculo:
           
                  try:
