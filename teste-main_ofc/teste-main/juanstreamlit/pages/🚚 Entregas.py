@@ -195,6 +195,6 @@ with seletor1:
                                  
                    else:        
                           metrica1 = st.metric(label="Total de notas completas", value=len(lista))
-      except:                                                                         
+    except:                                                                         
         pass
 
