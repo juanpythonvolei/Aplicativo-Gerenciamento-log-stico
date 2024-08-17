@@ -121,8 +121,8 @@ if seletor == 'rota da nota':
                                       pass
                                   else:
                                       lista_a.append(numero)
-              pesquisa_nota = st.selectbox('',lista_a,index=None,placeholder='Selecione uma nota')
-              if pesquisa_nota:
+            pesquisa_nota = st.selectbox('',lista_a,index=None,placeholder='Selecione uma nota')
+            if pesquisa_nota:
                      escolha()
         except:
             st.error('Sem Roteiros Disponíveis')
