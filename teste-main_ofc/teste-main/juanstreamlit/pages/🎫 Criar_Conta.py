@@ -1,5 +1,8 @@
 import streamlit as st
 import requests
+import Login
+
+st.session_state.user = ''
 st.markdown("""
     <style>
        [aria-expanded='true'] {
@@ -19,6 +22,7 @@ if login:
         requisicao_dic = requisicao.json()
         if requisicao.ok:
                     st.switch_page('pages/🌐 Processamento.py')
+                    st.session_state.user = login    
         else:
             mensagem_erro  = requisicao_dic['error']['message']
             if mensagem_erro == 'EMAIL_EXISTS':
