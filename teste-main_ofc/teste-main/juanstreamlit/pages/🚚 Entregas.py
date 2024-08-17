@@ -125,7 +125,10 @@ with seletor1:# Exibe a seleção da data
                                                                     link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                     dados2 = {"Veículo": veiculo}
                                                                     requests.post(link2, json=dados2)   
-                                                ref.child('Comprovantes de Entrega').push().set(st.session_state.fotos)                                                          
+                                                for item in st.session_state.fotos:
+                                                     mudanca = str(item).replace('./captured_image_','')
+                                                     numero = mudanca.replace('jpg','')
+                                                     ref.child(numero).push().set(item)                                                          
                                                 st.success('Entrega realizada com Sucesso')
                                                    
                                                 
