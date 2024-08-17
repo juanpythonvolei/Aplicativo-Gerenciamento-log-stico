@@ -38,7 +38,7 @@ try:
                                                          if str(data_emit) == str(opcao_selecionada_data):
                                                               if nota['Veículo'] == 'Indefinido': 
                                                                  veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
-                                                                 continue 
+                                                             
                                                               else:
                                                                    st.info('Entrega já realizada')
           if veiculo:
