@@ -42,7 +42,7 @@ try:
                                                               else:
                                                                    for item in nota['Veículo']:
                                                                         carro = nota['Veículo'][f'{item}']
-                                                                        lista_nomes_ja_entregaram.append(carro)
+                                                                        lista_nomes_ja_entregaram.append(carro['Veículo'])
                                                                    veiculo = st.selectbox('',list(set(lista_nomes_ja_entregaram)),index = None,placeholder='Selecione um Veículo')
           if veiculo:
           
