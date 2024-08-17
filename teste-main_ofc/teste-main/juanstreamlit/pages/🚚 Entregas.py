@@ -90,8 +90,8 @@ try:
                                status = 'Feito'
                                lista_conferida.append(status)
                                if len(lista_conferida) == len(lista_notas):
-                                           image = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
-                                           if image:   
+                                           imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
+                                           if imagem:   
                                                 requisicao_1 = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                                                 roteiro_1 = requisicao.json()
                                                 dados_1 = roteiro_1['bancodedadosroteirooficial']
