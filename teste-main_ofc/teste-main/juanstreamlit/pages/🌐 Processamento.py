@@ -78,7 +78,7 @@ if selected == 'Processar Notas':
       lista_filtrada = []
       uploaded_files = st.file_uploader("Escolha as Notas", type=['xml'], accept_multiple_files=True)
       if uploaded_files:
-         
+         try:
                 uso = []
                 lista_notas = []
                 quantidade_notas = []
@@ -273,7 +273,7 @@ if selected == 'Processar Notas':
                                                                                   ref.child(data_emissao).push().set(elemento)
                                                   st.success('Processo Concluído')
                                                   st.success(f'''Total de notas processadas:{len(lista_notas)}''')
-         
+         st.error('Oopss. Parece que algo deu errado. Tente novamente')
 elif selected == 'Excluir Conjuntos de Notas':
         lista_total = []
         destinos_info = []
