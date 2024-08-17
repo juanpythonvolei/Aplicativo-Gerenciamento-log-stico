@@ -191,22 +191,22 @@ if opcao_selecionada:
                         origem_atual = (lat_final, lon_final)
                 
                             
-                data = {'Destino': lista_total,
+              data = {'Destino': lista_total,
                             'Distância':lista_viagem,
                             'Duração':lista_duracao}
-                df = pd.DataFrame(data)
+              df = pd.DataFrame(data)
                 
                     # Exibindo a tabela no Streamlit
-                st.table(df)
+              st.table(df)
             
             
             
             
                 # Estilização CSS embutida
-                col1, col2, col3 = st.columns(3)
+              col1, col2, col3 = st.columns(3)
                 
                 # Estilização CSS embutida
-                css_style = """
+              css_style = """
                     .my-square {
                         background-color:#0275b1;
                         border-radius: 10px;
@@ -217,11 +217,11 @@ if opcao_selecionada:
                     }
                 """
                                       
-                with col1:
+              with col1:
                                           metrica1 = st.metric(label="Total Combustivel Gasto", value=f'{((distancia_total)/10)*5.50:.2f} R$')
-                with col2:
+              with col2:
                                           metrica2 = st.metric(label="Massa Total", value=f'{Massa_total:.2f} Kg')
-                with col3:
+              with col3:
                                           metrica3 = st.metric(label="Km Total", value=f'{distancia_total:.2f} Km')
-              except:
+           
                
