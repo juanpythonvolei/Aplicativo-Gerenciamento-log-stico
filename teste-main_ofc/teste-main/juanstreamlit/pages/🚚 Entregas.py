@@ -90,34 +90,35 @@ try:
                                status = 'Feito'
                                lista_conferida.append(status)
                                if len(lista_conferida) == len(lista_notas):
-                                           image = st.camera_input('Tire a foto do comprovante de recebimento do cliente')  
-                                           requisicao_1 = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-                                           roteiro_1 = requisicao.json()
-                                           dados_1 = roteiro_1['bancodedadosroteirooficial']
-                                           for item in dados_1:
-                                                         roteiro = dados_1[f'{item}']
-                                                         for elemento in roteiro:
-                                                             nota = roteiro[f'{elemento}'] 
-                                                             data = nota['Data de Emissão']
-                                                             
-                                                             if data == opcao_selecionada_data:
-                                                               status = nota['status']
-                                                               num_nota = nota['Número da Nota']  
-                                                               link = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/status.json'
-                                                               dados = '{"status": "Entrega realizada"}'
-                                                               requests.patch(link, data=dados)        
-                                                               link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
-                                                               dados2 = {"Veículo": veiculo}
-                                                               requests.post(link2, json=dados2)   
-                                                               if image:
-                                                                    with open(f'captured_image_{num_nota}.jpg', 'wb') as f:
-                                                                        f.write(image.getvalue())
-                                                                    link = f"./captured_image_{num_nota}.jpg" 
-                                                                    link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
-                                                                    dados3 = {"Comprovante": link}
-                                                                    requests.post(link23, json=dados3)        
-                                                               else:  
-                                                                      pass
+                                           image = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
+                                           if image:   
+                                                requisicao_1 = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+                                                roteiro_1 = requisicao.json()
+                                                dados_1 = roteiro_1['bancodedadosroteirooficial']
+                                                for item in dados_1:
+                                                              roteiro = dados_1[f'{item}']
+                                                              for elemento in roteiro:
+                                                                  nota = roteiro[f'{elemento}'] 
+                                                                  data = nota['Data de Emissão']
+                                                                  
+                                                                  if data == opcao_selecionada_data:
+                                                                    status = nota['status']
+                                                                    num_nota = nota['Número da Nota']  
+                                                                    link = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/status.json'
+                                                                    dados = '{"status": "Entrega realizada"}'
+                                                                    requests.patch(link, data=dados)        
+                                                                    link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
+                                                                    dados2 = {"Veículo": veiculo}
+                                                                    requests.post(link2, json=dados2)   
+                                                                    if image:
+                                                                         with open(f'captured_image_{num_nota}.jpg', 'wb') as f:
+                                                                             f.write(image.getvalue())
+                                                                         link = f"./captured_image_{num_nota}.jpg" 
+                                                                         link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
+                                                                         dados3 = {"Comprovante": link}
+                                                                         requests.post(link23, json=dados3)        
+                                                                    else:  
+                                                                           pass
                                                                      
                                            st.success('Entrega realizada com Sucesso')
                                               
