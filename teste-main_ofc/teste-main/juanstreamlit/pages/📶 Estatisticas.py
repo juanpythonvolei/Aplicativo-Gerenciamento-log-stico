@@ -134,7 +134,10 @@ if opcao_selecionada:
                                       valor  = nota['Valor Total']
                                       valor_total += float(valor)
                                       massa = nota['Massa']
-                                      Massa_total += float(massa)
+                                      try:
+                                        Massa_total += float(massa)
+                                      except:
+                                        Massa_total = massa
                                       if destino in lista_total:
                                           pass
                                       else:
