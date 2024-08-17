@@ -16,7 +16,7 @@ seletor1,seletor2 = st.tabs(['Entregas','Comprovantes'])
 with seletor1:# Exibe a seleção da data
      if 'fotos' not in st.session_state:
           st.session_state.fotos = []
-     lista_total = [item for item in dados]
+     lista_total = [item for item in dados if item!= 'Comprovantes']
      lista_nomes = []
      lista_destinos = []
      destinos_info = []
