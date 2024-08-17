@@ -79,7 +79,7 @@ try:
                                                              
                                                              checkbox_states[numero_nota] =  st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                             
-                                                             image = st.camera_input(label = f'Se preferir, tire uma foto do comprovante de entrega do cliente {cliente}',key=f'{numero_nota}') 
+                                                             image = st.camera_input(label = f'Se preferir, tire uma foto do comprovante de entrega do cliente {cliente}',key=numero_nota) 
                                                            else:
                    
                                                              st.success('Entrega Completa')
