@@ -62,7 +62,7 @@ try:
                                              
                                              roteiro = dados[f'{item}']
                                              for elemento in roteiro:
-                                                         col1,col2,col3 = st.columns(3)
+                                                        
                                                          nota = roteiro[f'{elemento}']
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
