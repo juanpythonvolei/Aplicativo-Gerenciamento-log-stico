@@ -123,7 +123,7 @@ with seletor2 :
                     roteiro2 = requiscao2.json()        
                     dados2 = roteiro2['bancodedadosroteirooficial']    
                     for item in dados2:
-                                          
+                                 if item != 'Comprovantes':         
                                           roteiro = dados2[f'{item}']
                                           for elemento in roteiro:
                                                       nota = roteiro[f'{elemento}']
