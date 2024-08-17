@@ -12,7 +12,7 @@ from firebase_admin import credentials, firestore,db
 from time import sleep
 import pprint
 from st_circular_progress import CircularProgress
-from streamlit_option_menu import option_menu
+
 from pprint import pprint
 import datetime
 
