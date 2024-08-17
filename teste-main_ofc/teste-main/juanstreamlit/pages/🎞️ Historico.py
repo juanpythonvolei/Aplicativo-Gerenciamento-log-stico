@@ -1,6 +1,19 @@
 import streamlit as st
 import requests
 from streamlit_option_menu import option_menu
+import Login
+
+
+
+try:
+  user,server = str(st.session_state.user).split('@')
+  st.write(f'Usuário logado: {user}')
+except:
+  pass
+
+
+
+
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 lista_total = []
 destinos_info = []
