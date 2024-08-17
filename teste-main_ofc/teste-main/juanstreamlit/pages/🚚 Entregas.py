@@ -113,12 +113,12 @@ try:
                                                                     with open(f'captured_image_{num_nota}.jpg', 'wb') as f:
                                                                         f.write(image.getvalue())
                                                                     link = f"./captured_image_{num_nota}.jpg" 
-                                                                    foto = link
+                                                                    link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
+                                                                    dados3 = {"Comprovante": link}
+                                                                    requests.post(link23, json=dados3)        
                                                                else:  
                                                                       pass
-                                                              link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
-                                                              dados3 = {"Comprovante": link}
-                                                              requests.post(link23, json=dados3)       
+                                                                     
                                            st.success('Entrega realizada com Sucesso')
                                               
                                            
