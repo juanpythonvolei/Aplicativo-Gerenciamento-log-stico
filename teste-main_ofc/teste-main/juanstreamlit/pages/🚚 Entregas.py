@@ -38,12 +38,12 @@ try:
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
                                                               for item in nota['Veículo']:
-                                                                   val = nota['Veículo'][f'{item}']
-                                                                   if val ==  'Indefinido':
+                                                                   valor = nota['Veículo'][f'{item}']
+                                                                   if valor == 'Indefinido':
                                                                         lista_verificada.append('Indefinido')
                                                                    else:
-                                                                        val = val['Veículo']
-                                                                        lista_verificada.append(val)
+                                                                        modelo = valor['Veículo']
+                                                                        lista_verificada.append(modelo)
                                                             
           veiculo = st.selectbox('',lista_verificada,index = None,placeholder='Selecione um Veículo')
      
