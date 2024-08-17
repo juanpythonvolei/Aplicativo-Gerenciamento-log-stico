@@ -139,7 +139,7 @@ if opcao_selecionada:
                                       except:
                                         Massa_total = massa
                                         if Massa_total == 'Desconsideravel':
-                                            Massa_total == 'Irrelevante'
+                                            Massa_total = 'Irrelevante'
                                       if destino in lista_total:
                                           pass
                                       else:
