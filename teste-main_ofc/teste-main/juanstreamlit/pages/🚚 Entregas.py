@@ -197,7 +197,7 @@ with seletor2:
                                    if item == 'Comprovantes':
                                         secao = dados[f'{item}']
                                         for elemento in secao:
-                                             comprovantes2 = secao[f'{elemento}']
+                                             comprovantes2 = secao[f'{elemento}']['Comprovantes']
                                              nome = [x[:17].replace('.jpg','') for x in comprovantes2]
                                              for y in nome:
                                                   lista_comprovantes.append(y)
