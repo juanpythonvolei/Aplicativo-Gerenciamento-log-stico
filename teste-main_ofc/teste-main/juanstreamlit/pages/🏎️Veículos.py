@@ -10,6 +10,19 @@ import datetime
 from streamlit_carousel import carousel
 import time
 from PIL import Image
+import Login
+
+
+
+try:
+  user,server = str(st.session_state.user).split('@')
+  st.write(f'Usuário logado: {user}')
+except:
+  pass
+
+
+
+
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 seletor1,seletor2,seletor3 = st.tabs(['Cadastrar Veículos','Pesquisar Veículos','Excluir veículos'])
 time.sleep(0.5)
