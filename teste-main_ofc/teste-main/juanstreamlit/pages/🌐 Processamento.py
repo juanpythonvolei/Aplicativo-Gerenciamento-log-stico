@@ -16,8 +16,8 @@ from streamlit_option_menu import option_menu
 from pprint import pprint
 import datetime
 import Login
-
-st.write(f'Usuário logado: {st.session_state.user}')
+user,server = str(st.session_state.user).split('@')
+st.write(f'Usuário logado: {user}')
 
 sleep(0.5)
 msg1 = st.toast('Bem vindo (a). ')
