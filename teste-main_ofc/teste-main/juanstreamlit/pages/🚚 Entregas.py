@@ -208,5 +208,6 @@ with seletor2:
                                         for elemento in secao:    
                                             comprovantes2 = secao[f'{elemento}']['Comprovantes']
                                             for item in comprovantes2:
-                                                 if nome_com in item:
+                                                 nome = item[17:].replace('.jpg','') 
+                                                 if nome_com == nome:
                                                       st.image(item)
