@@ -5,7 +5,8 @@ import requests
 import os
 
 
-                                                                
+if 'user' not in st.session_state:
+  st.session_state.user = 'Usuário: nenhum'                                                                
 st.markdown("""
     <style>
     .sidebar .sidebar-content {
@@ -91,6 +92,7 @@ if login:
                         st.switch_page('pages/🌐 Processamento.py')
           
                         st.set_page_config(initial_sidebar_state="collapsed",page_title=f"Roterização e suporte. Usuáro logado:{usuario}")
+                        st.session_state.user = usuario
                     else:
                         mensagem_erro  = requisicao_dic['error']['message']
                         if mensagem_erro == 'INVALID_LOGIN_CREDENTIALS':
