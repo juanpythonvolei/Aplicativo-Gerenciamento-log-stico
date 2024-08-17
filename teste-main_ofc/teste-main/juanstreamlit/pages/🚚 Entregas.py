@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 from streamlit_carousel import carousel
 import time
-
+from firebase_admin import credentials, firestore,db
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 
@@ -125,9 +125,7 @@ with seletor1:# Exibe a seleção da data
                                                                     link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                     dados2 = {"Veículo": veiculo}
                                                                     requests.post(link2, json=dados2)   
-                                                link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Comprovantes.json'
-                                                dados3 = {"Comprovantes": st.session_state.fotos}
-                                                requests.post(link3, json=dados3)                                                               
+                                                ref.child('Comprovantes de Entrega').push().set(st.session_state.fotos)                                                          
                                                 st.success('Entrega realizada com Sucesso')
                                                    
                                                 
