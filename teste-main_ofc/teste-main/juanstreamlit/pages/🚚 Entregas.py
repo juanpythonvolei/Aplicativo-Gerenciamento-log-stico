@@ -35,21 +35,22 @@ with seletor1:# Exibe a seleção da data
      if opcao_selecionada_data:
                for item in dados:
                                                   
-                                                  roteiro = dados[f'{item}'][:-1]
-                                                  for elemento in roteiro:
-                                                              nota = roteiro[f'{elemento}']
-                                                              data_emit = nota['Data de Emissão']
-                                                              if str(data_emit) == str(opcao_selecionada_data):
-                                                                     y = nota['Veículo']      
-                                                                     for i in y:
-                                                                         try:
-                                                                             veiculo = y[f'{i}']['Veículo']
-                                                                             if veiculo in lista_verificada:
-                                                                                  pass
-                                                                             else:   
-                                                                                  lista_verificada.append(veiculo)           
-                                                                         except:
-                                                                           lista_verificada.append('Indefinido')
+                                                  roteiro = dados[f'{item}']
+                                                  if roteiro != 'Comprovantes':
+                                                       for elemento in roteiro:
+                                                                   nota = roteiro[f'{elemento}']
+                                                                   data_emit = nota['Data de Emissão']
+                                                                   if str(data_emit) == str(opcao_selecionada_data):
+                                                                          y = nota['Veículo']      
+                                                                          for i in y:
+                                                                              try:
+                                                                                  veiculo = y[f'{i}']['Veículo']
+                                                                                  if veiculo in lista_verificada:
+                                                                                       pass
+                                                                                  else:   
+                                                                                       lista_verificada.append(veiculo)           
+                                                                              except:
+                                                                                lista_verificada.append('Indefinido')
                if 'Indefinido' in lista_verificada:                                                  
                     veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
                else:
