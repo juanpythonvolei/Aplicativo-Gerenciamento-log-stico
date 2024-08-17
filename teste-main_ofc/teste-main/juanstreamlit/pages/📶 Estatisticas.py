@@ -220,7 +220,10 @@ if opcao_selecionada:
               with col1:
                                           metrica1 = st.metric(label="Total Combustivel Gasto", value=f'{((distancia_total)/10)*5.50:.2f} R$')
               with col2:
-                                          metrica2 = st.metric(label="Massa Total", value=f'{Massa_total:.2f} Kg')
+                                          try:
+                                            metrica2 = st.metric(label="Massa Total", value=f'{Massa_total:.2f} Kg')
+                                          except:
+                                            metrica2 = st.metric(label="Massa Total", value=f'{Massa_total} Kg')
               with col3:
                                           metrica3 = st.metric(label="Km Total", value=f'{distancia_total:.2f} Km')
            
