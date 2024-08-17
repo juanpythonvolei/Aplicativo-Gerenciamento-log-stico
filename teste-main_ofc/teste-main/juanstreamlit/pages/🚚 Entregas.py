@@ -118,9 +118,10 @@ if opcao_selecionada_data:
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
                                                                requests.post(link2, json=dados2)
-                                           link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comrpovantes.json'
-                                           dados3 = {"Fotos dos Comprovantes": st.session_state.fotos}
-                                           requests.post(link3, json=dados3)                                         
+                                           if len(list(set(st.session_state.fotos)))   > 0:                
+                                             link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comrpovantes.json'
+                                             dados3 = {"Fotos dos Comprovantes": st.session_state.fotos}
+                                             requests.post(link3, json=dados3)                                         
                                            st.success('Entrega realizada com Sucesso')
                                               
                                            
