@@ -9,7 +9,7 @@ import os
 
 def ia(pergunta):
     
-    GOOGLE_API_KEY = ['firebase']['GOOGLE_API_KEY']
+    GOOGLE_API_KEY = st.secrets['firebase']['GOOGLE_API_KEY']
     genai.configure(api_key=GOOGLE_API_KEY)
 
     model = genai.GenerativeModel('gemini-1.5-flash')
