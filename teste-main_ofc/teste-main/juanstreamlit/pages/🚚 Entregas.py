@@ -6,33 +6,33 @@ import time
 if 'fotos' not in st.session_state:
   st.session_state.fotos = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-try:
-     requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-     roteiro = requisicao.json()
+
+requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requisicao.json()
      
           
-     dados = roteiro['bancodedadosroteirooficial']
+dados = roteiro['bancodedadosroteirooficial']
        
          # Exibe a seleção da data
-     lista_total = [item for item in dados]
-     lista_nomes = []
-     lista_verificada_sim =[]
-     lista_verificada_nao = []
-     lista_nomes_ja_entregaram = []
-     lista_destinos = []
-     destinos_info = []
-     distancia_total = 0
-     dados2 = roteiro['Veículos']
-     for item in dados2:            
+lista_total = [item for item in dados]
+lista_nomes = []
+lista_verificada_sim =[]
+lista_verificada_nao = []
+lista_nomes_ja_entregaram = []
+lista_destinos = []
+destinos_info = []
+distancia_total = 0
+dados2 = roteiro['Veículos']
+for item in dados2:            
                                  veiculo = dados2[f'{item}']
                                  for elemento in veiculo:
                                         espec = veiculo[f'{elemento}']
                                         nome = espec['nome']
                                         lista_nomes.append(nome)
        # Carrega os dados do banco de dados
-     checkbox_states = {}
-     opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
-     if opcao_selecionada_data:
+checkbox_states = {}
+opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
+if opcao_selecionada_data:
           for item in dados:      
                                              
                                              roteiro = dados[f'{item}']
@@ -74,7 +74,17 @@ try:
                                                              valor = nota['Valor Total']
                                                              cliente = nota['Cliente']
                                                              col1, col2 = st.columns([3, 1])                      
-                                                             checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)                      
+                                                             with col1: 
+                                                              checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             with col2:
+                                                                    image = st.camera_input(f"Foto Comprovante Nota {numero_nota}", key=f"camera_{numero_nota}")  
+                                                                    if image:
+                                                                      with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
+                                                                          f.write(image.getvalue())
+                                                                      link = f"./captured_image_{numero_nota}.jpg" 
+                                                                      st.session_state.fotos.append(link)
+                                                             
+                                                             st.divider()                        
                                                                                        # Usa o dicionário para controlar o estado da checkbox
                                                              
                                                           
@@ -177,5 +187,4 @@ try:
                                
                  else:        
                                                                            metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
-except:
-      st.error('Não há roteiros disponíveis')
+
