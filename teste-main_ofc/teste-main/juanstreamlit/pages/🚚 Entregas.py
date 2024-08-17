@@ -41,7 +41,10 @@ if opcao_selecionada_data:
                                                                 for i in y:
                                                                     try:
                                                                         veiculo = y[f'{i}']['Veículo']
-                                                                        lista_verificada.append(veiculo)           
+                                                                        if veiculo in lista_verificada:
+                                                                             pass
+                                                                        else:   
+                                                                             lista_verificada.append(veiculo)           
                                                                     except:
                                                                       lista_verificada.append('Indefinido')
           if 'Indefinido' in lista_verificada:                                                  
