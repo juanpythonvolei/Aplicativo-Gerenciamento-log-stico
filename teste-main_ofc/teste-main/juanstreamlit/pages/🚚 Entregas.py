@@ -35,7 +35,7 @@ with seletor1:# Exibe a seleção da data
      if opcao_selecionada_data:
                for item in dados:
                                                   
-                                                  roteiro = dados[f'{item}']
+                                                  roteiro = dados[f'{item}'][:-1]
                                                   for elemento in roteiro:
                                                               nota = roteiro[f'{elemento}']
                                                               data_emit = nota['Data de Emissão']
