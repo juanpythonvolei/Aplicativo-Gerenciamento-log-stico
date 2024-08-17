@@ -27,6 +27,7 @@ def escolha():
                                                                     roteiro = requiscao.json()
                                                                     dados = roteiro['bancodedadosroteirooficial']
                                                                     for item in dados:
+                                                                      if item != 'Comprovantes':
                                                                             roteiro = dados[f'{item}']
                                                                             for elemento in roteiro:
                                                                                 nota = roteiro[f'{elemento}']
@@ -111,17 +112,18 @@ if seletor == 'rota da nota':
         try:
             dados = roteiro['bancodedadosroteirooficial']
             for item in dados:
-                            roteiro = dados[f'{item}']
-                            for elemento in roteiro:
-                                nota = roteiro[f'{elemento}']
-                                numero = nota['Número da Nota']
-                                if numero in lista_a:
-                                    pass
-                                else:
-                                    lista_a.append(numero)
-            pesquisa_nota = st.selectbox('',lista_a,index=None,placeholder='Selecione uma nota')
-            if pesquisa_nota:
-                   escolha()
+                            if item != 'Comprovantes':
+                              roteiro = dados[f'{item}']
+                              for elemento in roteiro:
+                                  nota = roteiro[f'{elemento}']
+                                  numero = nota['Número da Nota']
+                                  if numero in lista_a:
+                                      pass
+                                  else:
+                                      lista_a.append(numero)
+              pesquisa_nota = st.selectbox('',lista_a,index=None,placeholder='Selecione uma nota')
+              if pesquisa_nota:
+                     escolha()
         except:
             st.error('Sem Roteiros Disponíveis')
 elif seletor == "rota de todas as notas":
@@ -138,14 +140,16 @@ elif seletor == "rota de todas as notas":
                                                                   base_url2 = "https://www.google.com/maps/dir/"
                                                                   
                                                                   for item in dados:
-                                                                          roteiro = dados[f'{item}']
-                                                                          lista_total.append(item)
+                                                                          if item != 'Comprovantes':
+                                                                            roteiro = dados[f'{item}']
+                                                                            lista_total.append(item)
                                                                   opcao_selecionada = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
                                                                   if opcao_selecionada:
                                                                     total = st.button("Pesquisar todas as rotas")
                                                                     if total:
                                                                         st.info(f'Total de Roteiros disponíveis: {len(lista_total)}')
                                                                         for item in dados:
+                                                                          if item != 'Comprovantes':
                                                                             if item == opcao_selecionada:
                                                                                 roteiro = dados[f'{item}']
                                                                                 for elemento in roteiro:
