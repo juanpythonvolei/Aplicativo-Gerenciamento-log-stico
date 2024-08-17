@@ -208,7 +208,7 @@ if selected == 'Processar Notas':
                                                     base_url = "https://maps.googleapis.com/maps/api/geocode/json"
                                                     params = {
                                                         "address": address2,
-                                                        "key": 'AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'  # Substitua pela sua chave de API
+                                                        "key":  st.secrets['firebase']['AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'] # Substitua pela sua chave de API
                                                     }
                     
                                                     response = requests.get(base_url, params=params)
@@ -224,7 +224,7 @@ if selected == 'Processar Notas':
                                                             params = {
                                                                         'origin': f'Rua Louveira, Jardim Samabaia,101.Itupeva,sp',  # Origem
                                                                         'destination': f'{str(address2)}',  # Destino
-                                                                        'key': 'AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'  # Sua chave de API do Google Maps
+                                                                        'key': st.secrets['firebase']['AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0']
                                                                     }
                     
                                                                     # Fazendo a requisição GET
