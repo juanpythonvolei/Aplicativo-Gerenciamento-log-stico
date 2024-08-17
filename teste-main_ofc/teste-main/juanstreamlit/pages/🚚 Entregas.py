@@ -90,8 +90,7 @@ try:
                                status = 'Feito'
                                lista_conferida.append(status)
                                if len(lista_conferida) == len(lista_notas):
-                                           imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
-                                           if imagem:   
+                                           
                                                 requisicao_1 = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
                                                 roteiro_1 = requisicao.json()
                                                 dados_1 = roteiro_1['bancodedadosroteirooficial']
@@ -110,17 +109,19 @@ try:
                                                                     link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                     dados2 = {"Veículo": veiculo}
                                                                     requests.post(link2, json=dados2)   
-                                                                    if image:
+                                                                    
+                                                                      
+                                                                    else:  
+                                                                           pass
+                                               st.success('Entrega realizada com Sucesso')
+                                               imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
+                                               if imagem:     
                                                                          with open(f'captured_image_{num_nota}.jpg', 'wb') as f:
                                                                              f.write(image.getvalue())
                                                                          link = f"./captured_image_{num_nota}.jpg" 
                                                                          link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
                                                                          dados3 = {"Comprovante": link}
                                                                          requests.post(link3, json=dados3)
-                                                                         st.success('Entrega realizada com Sucesso')
-                                                                    else:  
-                                                                           pass
-                                                                     
                                            
                                               
                                            
