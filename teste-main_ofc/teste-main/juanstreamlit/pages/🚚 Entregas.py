@@ -124,11 +124,7 @@ with seletor1:# Exibe a seleção da data
                                                                     requests.patch(link, data=dados)        
                                                                     link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                     dados2 = {"Veículo": veiculo}
-                                                                    requests.post(link2, json=dados2)   
-                                                for item in st.session_state.fotos:
-                                                     mudanca = str(item).replace('./captured_image_','')
-                                                     numero = mudanca.replace('jpg','')
-                                                     ref.child(numero).push().set(item)                                                          
+                                                                    requests.post(link2, json=dados2)                                                     
                                                 st.success('Entrega realizada com Sucesso')
                                                    
                                                 
