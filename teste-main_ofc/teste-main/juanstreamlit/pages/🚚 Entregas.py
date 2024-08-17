@@ -76,8 +76,9 @@ try:
                                                                                    
                                                                                    
                                                                                        # Usa o dicionário para controlar o estado da checkbox
-                                                             with col1: 
-                                                               checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             
+                                                               checkbox_states[numero_nota] = with col1: 
+                                                                 st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                              with col2:
                                                                image = st.camera_input(label = 'Se preferir, tire uma foto do comprovante de entrega')
                                                            else:
