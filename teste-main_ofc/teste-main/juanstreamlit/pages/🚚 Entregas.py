@@ -29,18 +29,7 @@ try:
      checkbox_states = {}
      opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
      if opcao_selecionada_data:
-          for item in dados:
-                                             
-                                             roteiro = dados[f'{item}']
-                                             for elemento in roteiro:
-                                                         nota = roteiro[f'{elemento}']
-                                                         data_emit = nota['Data de Emissão']
-                                                         if str(data_emit) == str(opcao_selecionada_data):
-                                                              if nota['Veículo'] == 'Indefinido': 
-                                                                 veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
-                                                             
-                                                              else:
-                                                                   st.info('Entrega já realizada')
+          veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')                                                      
           if veiculo:
           
                  try:
