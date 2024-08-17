@@ -4,6 +4,7 @@ from firebase_admin import credentials, firestore,db
 import requests
 import os
 
+st.session_state.user = ''
 
 if 'user' not in st.session_state:
   st.session_state.user = 'Usuário: nenhum'                                                                
