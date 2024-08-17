@@ -5,30 +5,30 @@ import time
 
 
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
-try:
-     requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
-     roteiro = requisicao.json()
+
+requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
+roteiro = requisicao.json()
      
           
-     dados = roteiro['bancodedadosroteirooficial']
+dados = roteiro['bancodedadosroteirooficial']
        
          # Exibe a seleção da data
-     lista_total = [item for item in dados]
-     lista_nomes = []
-     lista_destinos = []
-     destinos_info = []
-     distancia_total = 0
-     dados2 = roteiro['Veículos']
-     for item in dados2:            
+lista_total = [item for item in dados]
+lista_nomes = []
+lista_destinos = []
+destinos_info = []
+distancia_total = 0
+dados2 = roteiro['Veículos']
+for item in dados2:            
                                  veiculo = dados2[f'{item}']
                                  for elemento in veiculo:
                                         espec = veiculo[f'{elemento}']
                                         nome = espec['nome']
                                         lista_nomes.append(nome)
        # Carrega os dados do banco de dados
-     checkbox_states = {}
-     opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
-     if opcao_selecionada_data:
+checkbox_states = {}
+opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
+if opcao_selecionada_data:
           veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
           if veiculo:
           
@@ -149,6 +149,5 @@ try:
                                
                  else:        
                                                                            metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
-except:
-      st.error('Não há roteiros disponíveis')
+
                                                   
