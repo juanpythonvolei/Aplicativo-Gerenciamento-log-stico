@@ -36,7 +36,9 @@ with seletor1:# Exibe a seleção da data
                for item in dados:
                                                   
                                                   roteiro = dados[f'{item}']
-                                                  if roteiro != 'Comprovantes':
+                                                  if roteiro == 'Comprovantes':
+                                                       pass
+                                                  else:
                                                        for elemento in roteiro:
                                                                    nota = roteiro[f'{elemento}']
                                                                    data_emit = nota['Data de Emissão']
