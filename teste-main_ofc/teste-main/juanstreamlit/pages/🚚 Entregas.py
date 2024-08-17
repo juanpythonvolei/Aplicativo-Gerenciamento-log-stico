@@ -91,7 +91,7 @@ with seletor1:# Exibe a seleção da data
                                                                          st.session_state.fotos.append(link)  
                                                                     else:
                                                                          pass
-                                                               st.success('Entrega Completa')
+                                                                st.success('Entrega Completa')         
                                                        
                       except:
                             pass
