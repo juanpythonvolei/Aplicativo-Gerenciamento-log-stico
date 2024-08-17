@@ -83,9 +83,9 @@ with seletor1:# Exibe a seleção da data
                                                                      with col2:
                                                                          image = st.camera_input(f"Foto para Nota {numero_nota}", key=f"camera_{numero_nota}")
                                                                          if image:
-                                                                              with open(f'captured_image_{Veículo}.jpg', 'wb') as f:
+                                                                              with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
                                                                                   f.write(image.getvalue())
-                                                                              link = f"./captured_image_{Veículo}.jpg"  
+                                                                              link = f"./captured_image_{numero_nota}.jpg"  
                                                                               if link not in st.session_state.fotos:
                                                                                    st.session_state.fotos.append(link)
                                                                               else:
