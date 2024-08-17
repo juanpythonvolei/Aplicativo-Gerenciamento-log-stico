@@ -116,7 +116,7 @@ try:
                                                                          link = f"./captured_image_{num_nota}.jpg" 
                                                                          link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Comprovante.json'
                                                                          dados3 = {"Comprovante": link}
-                                                                         requests.post(link23, json=dados3)
+                                                                         requests.post(link3, json=dados3)
                                                                          st.success('Entrega realizada com Sucesso')
                                                                     else:  
                                                                            pass
