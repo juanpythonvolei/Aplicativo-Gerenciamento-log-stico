@@ -72,10 +72,13 @@ if opcao_selecionada_data:
                                                              lista_notas.append(numero_nota)
                                                              valor = nota['Valor Total']
                                                              cliente = nota['Cliente']
-                                                                                   
-                                                                                   
-                                                                                       # Usa o dicionário para controlar o estado da checkbox
-                                                             checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             col1, col2 = st.columns([3, 1])
+                                                             with col1:   
+                                                                  checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             with col2:   
+                                                                  st.camera_input(f"Foto para Comprovante da nota {numero_nota}", key=f"camera_{numero_nota}")
+                                                                  
+                                                             st.divider() 
                                                            else:
                    
                                                              st.success('Entrega Completa')
