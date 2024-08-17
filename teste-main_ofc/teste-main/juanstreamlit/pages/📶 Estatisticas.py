@@ -181,7 +181,10 @@ if opcao_selecionada:
                         
                         if data["status"] == "OK":
                             distance_text = data["rows"][0]["elements"][0]["distance"]["text"]
-                            distance_value = float(distance_text.split()[0]) 
+                            try:
+                              distance_value = float(distance_text.split()[0]) 
+                            except:
+                              pass
                             lista_viagem.append(distance_text)
                             distancia_total += distance_value 
                             duration = data["rows"][0]["elements"][0]["duration"]["text"]
