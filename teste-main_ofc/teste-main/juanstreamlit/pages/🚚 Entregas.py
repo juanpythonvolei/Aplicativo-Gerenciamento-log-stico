@@ -18,7 +18,7 @@ with seletor1:
   roteiro = requisicao.json()
        
             
-  dados = roteiro['bancodedadosroteirooficial'][:-1]
+  dados = roteiro['bancodedadosroteirooficial']
          
            # Exibe a seleção da data
   lista_total = [item for item in dados]
@@ -44,7 +44,7 @@ with seletor1:
             for item in dados:      
                                                
                                                roteiro = dados[f'{item}']
-                                               for elemento in roteiro:
+                                               for elemento in roteiro[:-1]:
                                                            nota = roteiro[f'{elemento}']  
                                                            if str(data_emit) == str(opcao_selecionada_data):
                                                                 if nota['Veículo'] =='Indefinido':
