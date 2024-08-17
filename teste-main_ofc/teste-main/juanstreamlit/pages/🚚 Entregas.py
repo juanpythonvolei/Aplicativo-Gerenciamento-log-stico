@@ -113,9 +113,9 @@ try:
                                                                            pass   
                                                                       
                                                                  
-                                               st.success('Entrega realizada com Sucesso')
-                                               imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
-                                               if imagem:     
+                                             st.success('Entrega realizada com Sucesso')
+                                             imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
+                                             if imagem:     
                                                                          with open(f'captured_image_{num_nota}.jpg', 'wb') as f:
                                                                              f.write(image.getvalue())
                                                                          link = f"./captured_image_{num_nota}.jpg" 
