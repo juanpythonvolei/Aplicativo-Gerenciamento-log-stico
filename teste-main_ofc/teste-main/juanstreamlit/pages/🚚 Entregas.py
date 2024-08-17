@@ -8,7 +8,7 @@ image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702
 
 
 
-seletor1,seletor2,seletor3 = st.tabs(['Entregas','Comprovantes'])
+seletor1,seletor2 = st.tabs(['Entregas','Comprovantes'])
 
 
 with seletor1:
