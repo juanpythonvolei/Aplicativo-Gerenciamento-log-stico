@@ -63,8 +63,8 @@ with seletor1 :
             f.write(image.getvalue())
         link = f"./captured_image_{Veículo}.jpg" 
         foto = link
-    else:
-        pass
+      else:
+          pass
     if not foto:
       st.warning('Você ainda não forneceu a foto do veículo')
     if Veículo and Placa and km and foto:
