@@ -129,6 +129,7 @@ try:
                                              link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comprovantes.json'
                                              dados3 = {"Comprovantes das fotos": st.session_state.fotos}   
                                              requests.post(link3, json=dados3)
+                                             st.session_state.fotos = []
                                            else:
                                              pass  
                                            st.success('Entrega realizada com Sucesso') 
