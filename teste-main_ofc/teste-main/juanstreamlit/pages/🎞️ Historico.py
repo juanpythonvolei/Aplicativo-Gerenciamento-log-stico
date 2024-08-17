@@ -24,6 +24,7 @@ try:
                 # Aplicando o estilo e inserindo os quadrados
           if selected == 'Historico de Entregas':
                     for item in dados:
+                              if item != 'Comprovantes':
                                 try:               
                                           texto_historico = ''
                                           roteiro = dados[f'{item}']
@@ -64,11 +65,13 @@ try:
                     base_url2 = "https://www.google.com/maps/dir/"
                     try:
                               for item in dados:
+                                        if item != 'Comprovantes':
                                               roteiro = dados[f'{item}']
                                               lista_total.append(item)
                               opcao_selecionada = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
                               if opcao_selecionada:
                                         for item in dados:
+                                                  if item != 'Comprovantes':
                                                     Produtos = ''        
                                                     texto_historico = ''
                                                     roteiro = dados[f'{item}']
