@@ -3,7 +3,8 @@ import requests
 from streamlit_carousel import carousel
 import time
 
-
+if 'fotos' not in st.session_state:
+  st.session_state.fotos = []
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 try:
      requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
@@ -52,7 +53,7 @@ try:
           else:
                veiculo = st.selectbox('',list(set(lista_nomes_ja_entregaram)),index = None,placeholder='Selecione um Veículo')
           if veiculo:
-          
+                  
                  try:
                      lista_alerta = []
                      lista_conferida = []
@@ -61,6 +62,7 @@ try:
                                              
                                              roteiro = dados[f'{item}']
                                              for elemento in roteiro:
+                                                         col1,col2,col3 = st.columns(3)
                                                          nota = roteiro[f'{elemento}']
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
@@ -74,7 +76,10 @@ try:
                                                                                    
                                                                                    
                                                                                        # Usa o dicionário para controlar o estado da checkbox
-                                                             checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             with col1: 
+                                                               checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                             with col2:
+                                                               image = st.camera_input(label = 'Se preferir, tire uma foto do comprovante de entrega')
                                                            else:
                    
                                                              st.success('Entrega Completa')
@@ -106,7 +111,7 @@ try:
                                                                requests.patch(link, data=dados)        
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
-                                                               requests.post(link2, json=dados2)   
+                                                               requests.post(link2, json=dados2)                            
                                            st.success('Entrega realizada com Sucesso')
                                               
                                            
