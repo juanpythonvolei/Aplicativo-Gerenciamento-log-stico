@@ -127,7 +127,7 @@ with seletor1:# Exibe a seleção da data
                                                                     requests.post(link2, json=dados2)
                                                 link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/Comprovantes.json'
                                                 dados3 = {"Comprovantes": st.session_state.fotos}
-                                                requests.post(link3, json=dados3                                                 
+                                                requests.post(link3, json=dados3)                                                 
                                                 st.success('Entrega realizada com Sucesso')
                                                    
                                                 
