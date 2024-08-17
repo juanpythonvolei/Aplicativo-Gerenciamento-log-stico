@@ -56,7 +56,14 @@ with seletor1 :
     with col1:
       foto = st.text_input(label='',placeholder='Insira a url da foto do Veículo') 
     with col2:
-      st.camera_input(label='Se preferir, tire uma foto do seu veículo')
+      image = st.camera_input(label='Se preferir, tire uma foto do seu veículo')
+      if image:
+        with open(f'captured_image_{Veículo}.jpg', 'wb') as f:
+            f.write(image.getvalue())
+        link = f"./captured_image_{Veículo}.jpg" 
+        foto = link
+    else:
+        pass
     if not foto:
       st.warning('Você ainda não forneceu a foto do veículo')
     if Veículo and Placa and km and foto:
