@@ -77,17 +77,9 @@ try:
                                                                                    
                                                                                        # Usa o dicionário para controlar o estado da checkbox
                                                              
-                                                             with col1:
-                                                              checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
-                                                             with col2:
-                                                                    image = st.camera_input(f"Foto Comprovante Nota {numero_nota}", key=f"camera_{numero_nota}")  
-                                                                    if image:
-                                                                      with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
-                                                                          f.write(image.getvalue())
-                                                                      link = f"./captured_image_{numero_nota}.jpg" 
-                                                                      st.session_state.fotos.append(link)
-                                                             
-                                                             st.divider()  
+                                                          
+                                                            checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+
                                                             
                                                              
                                                            else:   
@@ -121,13 +113,7 @@ try:
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
                                                                requests.post(link2, json=dados2)
-                                           if len(st.session_state.fotos) > 0:                      
-                                             link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comprovantes.json'
-                                             dados3 = {"Comprovantes das fotos": st.session_state.fotos}   
-                                             requests.post(link3, json=dados3)
-                                             st.session_state.fotos = []
-                                           else:
-                                             pass  
+                                           
                                            st.success('Entrega realizada com Sucesso') 
                                               
                                            
