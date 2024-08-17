@@ -180,7 +180,7 @@ if selected == 'Processar Notas':
                 base_url = "https://maps.googleapis.com/maps/api/geocode/json"
                 params = {
                                   "address": address,
-                                  "key": 'AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'  # Substitua pela sua chave de API
+                                  "key": st.secrets['firebase']['chave_api_googlemaps']  # Substitua pela sua chave de API
                                       }
                   
                 response = requests.get(base_url, params=params)
@@ -208,7 +208,7 @@ if selected == 'Processar Notas':
                                                     base_url = "https://maps.googleapis.com/maps/api/geocode/json"
                                                     params = {
                                                         "address": address2,
-                                                        "key":  st.secrets['firebase']['AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'] # Substitua pela sua chave de API
+                                                        "key":  st.secrets['firebase']['chave_api_googlemaps'] # Substitua pela sua chave de API
                                                     }
                     
                                                     response = requests.get(base_url, params=params)
@@ -224,7 +224,7 @@ if selected == 'Processar Notas':
                                                             params = {
                                                                         'origin': f'Rua Louveira, Jardim Samabaia,101.Itupeva,sp',  # Origem
                                                                         'destination': f'{str(address2)}',  # Destino
-                                                                        'key': st.secrets['firebase']['AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0']
+                                                                        'key': st.secrets['firebase']['chave_api_googlemaps']
                                                                     }
                     
                                                                     # Fazendo a requisição GET
