@@ -14,6 +14,8 @@ dados = roteiro['bancodedadosroteirooficial']
        
 seletor1,seletor2 = st.tabs(['Entregas','Comprovantes'])
 with seletor1:# Exibe a seleção da data
+     if 'fotos' not in st.session_state:
+          st.session_state.fotos = []
      lista_total = [item for item in dados]
      lista_nomes = []
      lista_destinos = []
@@ -76,10 +78,12 @@ with seletor1:# Exibe a seleção da data
                                                                                         
                                                                                         
                                                                                             # Usa o dicionário para controlar o estado da checkbox
-                                                                  checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
-                                                                else:
-                        
-                                                                  st.success('Entrega Completa')
+                                                                  col1, col2 = st.columns([3, 1])
+                                                                  with col1:
+                                                                    checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                                  with col2:
+                                                                    st.camera_input(f"Foto para Nota {numero_nota}", key=f"camera_{numero_nota}")
+                           st.success('Entrega Completa')           
                       except:
                             pass
                         
