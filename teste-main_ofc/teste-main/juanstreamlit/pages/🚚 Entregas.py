@@ -171,5 +171,4 @@ if opcao_selecionada_data:
                                
                  else:        
                                                                            metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
-except:
-      st.error('Não há roteiros disponíveis')
+
