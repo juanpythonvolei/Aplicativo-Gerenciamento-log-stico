@@ -196,11 +196,5 @@ with seletor2:
       for item in dados:
                                    if item == 'Comprovantes':
                                         secao = dados[f'{item}']
-                                        comprovante = secao['Comprovantes']
-                                        nome = str(comprovante[17:])
-                                        nome = nome.replace('.jpg','')
-                                        if nome in lista_comprovantes:
-                                             pass
-                                        else:
-                                             lista_comprovantes.append(nome)
+                                        st.write(secao)    
       st.selctbox(label='',placeholder = 'selecione uma nota',options = lista_comprovantes)
