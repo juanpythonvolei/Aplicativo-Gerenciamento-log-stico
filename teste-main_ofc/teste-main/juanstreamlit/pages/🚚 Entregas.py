@@ -127,7 +127,10 @@ with seletor1:# Exibe a seleção da data
                                                                     requests.post(link2, json=dados2)
                                                 ref = db.reference('Comprovantes')
                                                 dict_comprovantes = {'Comprovantes':st.session_state.fotos}
-                                                  
+                                                for item in st.session_state.fotos:
+                                                     numero = item[17:]
+                                                     numero = numero.replace('.jpg','')
+                                                ref.child().push().set(dict_comprovantes)  
                                                 st.success('Entrega realizada com Sucesso')
                                                    
                                                 
