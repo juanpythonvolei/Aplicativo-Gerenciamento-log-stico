@@ -30,7 +30,7 @@ try:
      checkbox_states = {}
      opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
      if opcao_selecionada_data:
-           for item in dados:
+          for item in dados:      
                                              
                                              roteiro = dados[f'{item}']
                                              for elemento in roteiro:
