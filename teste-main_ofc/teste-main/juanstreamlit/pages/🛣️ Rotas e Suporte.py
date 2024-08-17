@@ -16,6 +16,16 @@ import webbrowser
 from suporte_inteligente import ia
 from streamlit_option_menu import option_menu
 import time
+import Login
+
+
+
+try:
+  user,server = str(st.session_state.user).split('@')
+  st.write(f'Usuário logado: {user}')
+except:
+  pass
+
 @st.dialog(f"Deseja realmente acessar a rota da nota?") 
 def escolha():    
                                                             
