@@ -201,4 +201,12 @@ with seletor2:
                                              nome = [x[17:].replace('.jpg','') for x in comprovantes2]
                                              for y in nome:
                                                   lista_comprovantes.append(y)
-      st.selectbox(label='',placeholder = 'selecione uma nota',options = lista_comprovantes)
+      nome_com = st.selectbox(label='',placeholder = 'selecione uma nota',options = lista_comprovantes,index=None)
+      for item in dados:
+                                   if item == 'Comprovantes':
+                                        secao = dados[f'{item}']
+                                        for elemento in secao:    
+                                            comprovantes2 = secao[f'{elemento}']['Comprovantes']
+                                            for item in comprovantes2:
+                                                 if nome_com in item:
+                                                      st.image(item)
