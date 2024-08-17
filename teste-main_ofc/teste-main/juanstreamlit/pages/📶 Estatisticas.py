@@ -138,6 +138,8 @@ if opcao_selecionada:
                                         Massa_total += float(massa)
                                       except:
                                         Massa_total = massa
+                                        if Massa_total == 'Desconsiderável'
+                                            Massa_total == 'Irrelevante'
                                       if destino in lista_total:
                                           pass
                                       else:
