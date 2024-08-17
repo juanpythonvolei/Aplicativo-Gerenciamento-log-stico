@@ -111,7 +111,7 @@ try:
                                                                     requests.post(link2, json=dados2)   
                                                                     
                                                                       
-                                                                    else:  
+                                                                 else:  
                                                                            pass
                                                st.success('Entrega realizada com Sucesso')
                                                imagem = st.camera_input('Tire a foto do comprovante de recebimento do cliente')
