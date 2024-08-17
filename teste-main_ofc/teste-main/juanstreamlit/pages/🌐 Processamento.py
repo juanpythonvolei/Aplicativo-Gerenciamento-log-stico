@@ -16,6 +16,10 @@ from streamlit_option_menu import option_menu
 from pprint import pprint
 import datetime
 import Login
+import Criar_Conta
+
+
+
 user,server = str(st.session_state.user).split('@')
 st.write(f'Usuário logado: {user}')
 
