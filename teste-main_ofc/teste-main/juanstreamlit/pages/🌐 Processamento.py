@@ -19,9 +19,11 @@ import Login
 
 
 
-
-user,server = str(st.session_state.user).split('@')
-st.write(f'Usuário logado: {user}')
+try:
+  user,server = str(st.session_state.user).split('@')
+  st.write(f'Usuário logado: {user}')
+except:
+  pass
 
 sleep(0.5)
 msg1 = st.toast('Bem vindo (a). ')
