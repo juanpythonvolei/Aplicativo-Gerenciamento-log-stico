@@ -3,7 +3,15 @@ import requests
 from streamlit_carousel import carousel
 import time
 from firebase_admin import credentials, firestore,db
+import Login
 
+
+
+try:
+  user,server = str(st.session_state.user).split('@')
+  st.write(f'Usuário logado: {user}')
+except:
+  pass
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 
 requisicao = requests.get('https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/.json')
