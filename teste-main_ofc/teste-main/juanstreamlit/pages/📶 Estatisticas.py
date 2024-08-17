@@ -109,7 +109,7 @@ if opcao_selecionada:
               base_url = "https://maps.googleapis.com/maps/api/geocode/json"
               params = {
                                                       "address": address,
-                                                      "key": 'AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'  # Substitua pela sua chave de API
+                                                      "key": st.secrets['firebase']['chave_api_googlemaps']  # Substitua pela sua chave de API
                                                   }
           
               response = requests.get(base_url, params=params)
