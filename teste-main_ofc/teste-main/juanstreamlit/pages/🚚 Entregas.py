@@ -77,11 +77,11 @@ if opcao_selecionada_data:
                                                              with col1:   
                                                                   checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                              with col2:   
-                                                                  images_states[numero_nota] = st.camera_input(f"Foto para Comprovante da nota {numero_nota}", key=f"camera_{numero_nota}")
-                                                                  if st.camera_input:
-                                                                      with open(f'captured_image_{Veículo}.jpg', 'wb') as f:
+                                                                  image = st.camera_input(f"Foto para Comprovante da nota {numero_nota}", key=f"camera_{numero_nota}")
+                                                                  if image:
+                                                                      with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
                                                                           f.write(image.getvalue())
-                                                                      link = f"./captured_image_{Veículo}.jpg" 
+                                                                      link = f"./captured_image_{numero_nota}.jpg" 
                                                                       if link in st.session_state.fotos:
                                                                         pass
                                                                       else:
