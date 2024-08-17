@@ -52,7 +52,11 @@ with seletor1 :
     distancia_inicial = st.number_input("",placeholder='Selecione a kilometragem atual do veículo',value=None)
     if not distancia_inicial:
       st.warning('Você ainda não forneceu a kilometragem inicial do veículo')
-    foto = st.text_input(label='',placeholder='Insira a url da foto do Veículo')  
+    col1,col2,col3 = st.columns(3)
+    with col1:
+      foto = st.text_input(label='',placeholder='Insira a url da foto do Veículo') 
+    with col2:
+      st.camera_input(label='Se preferir, tire uma foto do seu veículo')
     if not foto:
       st.warning('Você ainda não forneceu a foto do veículo')
     if Veículo and Placa and km and foto:
