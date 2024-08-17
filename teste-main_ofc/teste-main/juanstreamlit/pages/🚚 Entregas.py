@@ -37,15 +37,17 @@ if opcao_selecionada_data:
                                                          nota = roteiro[f'{elemento}']
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
-                                                              for item in nota['Veículo']:
-                                                                   valor = nota['Veículo'][f'{item}']
-                                                                   if valor == 'Indefinido':
-                                                                        lista_verificada.append('Indefinido')
-                                                                   else:
-                                                                        modelo = valor['Veículo']
-                                                                        lista_verificada.append(modelo)
-                                                            
-          veiculo = st.selectbox('',lista_verificada,index = None,placeholder='Selecione um Veículo')
+                                                                y = nota['Veículo']      
+                                                                for i in y:
+                                                                    try:
+                                                                        veiculo = y[f'{i}']['Veículo']
+                                                                        lista_verificada.append(veiculo)           
+                                                                    except:
+                                                                      lista_verificada.append('Indefinido')
+          if 'Indefinido' in lista_verificada:                                                  
+               veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
+          else:
+               veiculo = st.selectbox('',lista_verificada,index = None,placeholder='Selecione um Veículo')
      
           if veiculo:
           
