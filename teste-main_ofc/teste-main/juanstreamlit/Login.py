@@ -110,4 +110,4 @@ else:
 criar_conta = st.button('Não tem uma conta? Crie sua Conta aqui')
 with col2:
         if criar_conta:
-                st.switch_page('pages/🎫 Criar_Conta.py')
+                st.switch_page('pages/Criar_Conta.py')
