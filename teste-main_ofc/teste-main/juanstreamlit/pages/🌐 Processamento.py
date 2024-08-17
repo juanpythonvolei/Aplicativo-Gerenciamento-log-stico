@@ -234,7 +234,7 @@ if selected == 'Processar Notas':
                                                                         data = response.json()
                                                                         route = data['routes'][0]  # Primeira rota disponível
                                                                         distance = route['legs'][0]['distance']['text'][:4]
-                                                                        distancia = float(distance.replace(' km', '').replace(',', '.'))
+                                                                        distancia = float(distance.replace('km', '').replace(',', '.'))
                                                                         duration = route['legs'][0]['duration']['text']
                                                                         destinos_info.append({
                                                                             'destino': valor,
