@@ -191,8 +191,7 @@ with seletor1:# Exibe a seleção da data
                                     
                       else:        
                                                                                 metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
-     
- with seletor2:
+with seletor2:
       lista_comprovantes = []
       for item in dados:
                                    if item == 'Comprovantes':
