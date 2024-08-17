@@ -2,7 +2,10 @@ import streamlit as st
 import requests
 import Login
 
-st.session_state.user = ''
+try:
+    st.session_state.user = ''
+except:
+    pass
 st.markdown("""
     <style>
        [aria-expanded='true'] {
