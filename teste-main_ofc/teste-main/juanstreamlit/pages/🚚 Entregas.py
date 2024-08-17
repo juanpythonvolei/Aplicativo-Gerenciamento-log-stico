@@ -83,9 +83,11 @@ try:
                                                                     st.camera_input(f"Foto para Nota {numero_nota}", key=f"camera_{numero_nota}")  
                                                             
                                                              
-                                                          else:
+                                                           
+                                                           
+                                                            else:
                    
-                                                             st.success('Entrega Completa')
+                                                               st.success('Entrega Completa')
                  except:
                        pass
                    
