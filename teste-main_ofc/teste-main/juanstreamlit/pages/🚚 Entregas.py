@@ -87,7 +87,7 @@ with seletor1:# Exibe a seleção da data
                                                                          with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
                                                                              f.write(image.getvalue())
                                                                          link = f"./captured_image_{numero_nota}.jpg"  
-                                                                    if link in st.session_state.fotos:a
+                                                                    if link in st.session_state.fotos:
                                                                          pass
                                                                     else:        
                                                                          st.session_state.fotos.append(link)  
