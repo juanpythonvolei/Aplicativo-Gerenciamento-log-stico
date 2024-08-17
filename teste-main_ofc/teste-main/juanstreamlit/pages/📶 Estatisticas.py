@@ -17,8 +17,9 @@ dados = roteiro['bancodedadosroteirooficial']
 base_url2 = "https://www.google.com/maps/dir/"   
 
 for item in dados:
-                  roteiro = dados[f'{item}']
-                  lista_total.append(item)
+                  if item != 'Comprovantes':
+                    roteiro = dados[f'{item}']
+                    lista_total.append(item)
 opcao_selecionada = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
 selected1,selected2 = st.tabs(['Dados Gerais','Dados do Transporte'])
 if opcao_selecionada:
@@ -39,6 +40,7 @@ if opcao_selecionada:
                 valor_total = 0
                 
                 for item in dados:
+                  if item != 'Comprovantes':
                         roteiro = dados[f'{item}']
                         for elemento in roteiro:
                             nota = roteiro[f'{elemento}']
@@ -126,6 +128,7 @@ if opcao_selecionada:
               dados = roteiro['bancodedadosroteirooficial']
               base_url2 = "https://www.google.com/maps/dir/"
               for item in dados:
+                if item != 'Comprovantes':
                               roteiro = dados[f'{item}']
                               for elemento in roteiro:
                                   nota = roteiro[f'{elemento}']
