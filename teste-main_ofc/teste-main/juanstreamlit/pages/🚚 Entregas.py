@@ -141,7 +141,7 @@ if opcao_selecionada_data:
                  except:   
                    pass  
          
-                 if  status == 'Entrega não completa':   
+                 if status == 'Entrega não completa':   
                                                       
                                                                            
                                                                            metrica1 = st.metric(label="Total de notas completas", value=len(lista_conferida))            
