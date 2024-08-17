@@ -18,6 +18,7 @@ try:
      lista_destinos = []
      destinos_info = []
      distancia_total = 0
+     lista_verificada = []
      dados2 = roteiro['Veículos']
      for item in dados2:            
                                  veiculo = dados2[f'{item}']
@@ -29,7 +30,23 @@ try:
      checkbox_states = {}
      opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
      if opcao_selecionada_data:
-          veiculo = st.selectbox('',lista_nomes,index = None,placeholder='Selecione um Veículo')
+          for item in dados:
+                                             
+                                             roteiro = dados[f'{item}']
+                                             for elemento in roteiro:
+                                                         nota = roteiro[f'{elemento}']
+                                                         data_emit = nota['Data de Emissão']
+                                                         if str(data_emit) == str(opcao_selecionada_data):
+                                                              for item in nota['Veículo']:
+                                                                   val = nota['Veículo'][f'{item}']
+                                                                   if val ==  'Indefinido':
+                                                                        lista_verificada.append('Indefinido')
+                                                                   else:
+                                                                        val = val['Veículo']
+                                                                        lista_verificada.append(val)
+                                                            
+          veiculo = st.selectbox('',lista_verificada,index = None,placeholder='Selecione um Veículo')
+     
           if veiculo:
           
                  try:
