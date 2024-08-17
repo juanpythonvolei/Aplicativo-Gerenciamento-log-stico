@@ -82,9 +82,9 @@ try:
                                                              with col2:
                                                                     image = st.camera_input(f"Foto Comprovante Nota {numero_nota}", key=f"camera_{numero_nota}")  
                                                                     if image:
-                                                                      with open(f'captured_image_{Veículo}.jpg', 'wb') as f:
+                                                                      with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
                                                                           f.write(image.getvalue())
-                                                                      link = f"./captured_image_{Veículo}.jpg" 
+                                                                      link = f"./captured_image_{numero_nota}.jpg" 
                                                                       st.session_state.fotos.append(link)
                                                                     else:
                                                                         pass 
@@ -124,7 +124,7 @@ try:
                                                                requests.post(link2, json=dados2)
                                            if len(st.session_state.fotos) > 0:                      
                                              link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comprovantes.json'
-                                             dados3 = {"Veículo": st.session_state.fotos}   
+                                             dados3 = {"Comprovantes das fotos": st.session_state.fotos}   
                                              requests.post(link3, json=dados3)
                                            else:
                                              pass  
