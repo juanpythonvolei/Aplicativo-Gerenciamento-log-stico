@@ -7,7 +7,7 @@ st.markdown("""
         }
     </style>
 """, unsafe_allow_html=True)
-key = st.secrets['firebase']['key_login ']
+key = st.secrets['firebase']['key_login']
 col1,col2,col3 = st.columns(3)
 image = st.image('https://www.logolynx.com/images/logolynx/fe/fe346f78d111e1d702b44186af59b568.jpeg')
 login = st.text_input(label='',placeholder='Digite E-mail de criação de conta')
