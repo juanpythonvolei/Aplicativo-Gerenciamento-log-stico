@@ -249,7 +249,10 @@ if selected == 'Processar Notas':
                                                                         })
                                                   st.info('Conectando ao banco de dados')
                                                   lista_pontos = []
-                                                  destinos_ordenados = sorted(destinos_info, key=lambda x: x['distancia'])
+                                                  try:
+                                                    destinos_ordenados = sorted(destinos_info, key=lambda x: x['distancia'])
+                                                  except:
+                                                    destinos_ordenados = destinos_info
                                                   for destino in destinos_ordenados:        # Criar o DataFrame com todos os dados das notas
                                                                                   local=destino['coordenadas_google']
                                                                                   if local in lista_pontos:
