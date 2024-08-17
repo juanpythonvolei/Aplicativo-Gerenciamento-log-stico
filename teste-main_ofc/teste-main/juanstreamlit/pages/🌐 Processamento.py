@@ -15,9 +15,9 @@ from st_circular_progress import CircularProgress
 from streamlit_option_menu import option_menu
 from pprint import pprint
 import datetime
+import Login
 
-
-st.write('Está funcionando')
+st.write(f'Usuário logado: {st.session_state.user}')
 
 sleep(0.5)
 msg1 = st.toast('Bem vindo (a). ')
