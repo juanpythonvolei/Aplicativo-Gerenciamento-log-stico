@@ -62,7 +62,6 @@ if opcao_selecionada_data:
                                              
                                              roteiro = dados[f'{item}']
                                              for elemento in roteiro:
-                                                        
                                                          nota = roteiro[f'{elemento}']
                                                          data_emit = nota['Data de Emissão']
                                                          if str(data_emit) == str(opcao_selecionada_data):
@@ -73,26 +72,12 @@ if opcao_selecionada_data:
                                                              lista_notas.append(numero_nota)
                                                              valor = nota['Valor Total']
                                                              cliente = nota['Cliente']
-                                                             col1, col2 = st.columns([3, 1])                      
-                                                             with col1: 
-                                                              checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
-                                                             with col2:
-                                                                    image = st.camera_input(f"Foto Comprovante Nota {numero_nota}", key=f"camera_{numero_nota}")  
-                                                                    if image:
-                                                                      with open(f'captured_image_{numero_nota}.jpg', 'wb') as f:
-                                                                          f.write(image.getvalue())
-                                                                      link = f"./captured_image_{numero_nota}.jpg" 
-                                                                      st.session_state.fotos.append(link)
-                                                             
-                                                             st.divider()                        
+                                                                                   
+                                                                                   
                                                                                        # Usa o dicionário para controlar o estado da checkbox
-                                                             
-                                                          
-                                                            
-
-                                                            
-                                                             
-                                                           else:   
+                                                             checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                           else:
+                   
                                                              st.success('Entrega Completa')
                  except:
                        pass
@@ -122,9 +107,8 @@ if opcao_selecionada_data:
                                                                requests.patch(link, data=dados)        
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
-                                                               requests.post(link2, json=dados2)
-                                           
-                                           st.success('Entrega realizada com Sucesso') 
+                                                               requests.post(link2, json=dados2)   
+                                           st.success('Entrega realizada com Sucesso')
                                               
                                            
                                           
@@ -187,4 +171,5 @@ if opcao_selecionada_data:
                                
                  else:        
                                                                            metrica1 = st.metric(label="Total de notas completas", value=len(lista))  
-
+except:
+      st.error('Não há roteiros disponíveis')
