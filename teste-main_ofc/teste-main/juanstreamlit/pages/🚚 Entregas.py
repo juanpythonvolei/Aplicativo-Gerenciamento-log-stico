@@ -76,8 +76,15 @@ if opcao_selecionada_data:
                                                              with col1:   
                                                                   checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
                                                              with col2:   
-                                                                  st.camera_input(f"Foto para Comprovante da nota {numero_nota}", key=f"camera_{numero_nota}")
-                                                                  
+                                                                  image = st.camera_input(f"Foto para Comprovante da nota {numero_nota}", key=f"camera_{numero_nota}")
+                                                                  if image:
+                                                                      with open(f'captured_image_{Veículo}.jpg', 'wb') as f:
+                                                                          f.write(image.getvalue())
+                                                                      link = f"./captured_image_{Veículo}.jpg" 
+                                                                      if link in st.session_state.fotos:
+                                                                        pass
+                                                                      else:
+                                                                        st.session_state.fotos.append(link)
                                                              st.divider() 
                                                            else:
                    
@@ -110,7 +117,10 @@ if opcao_selecionada_data:
                                                                requests.patch(link, data=dados)        
                                                                link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                dados2 = {"Veículo": veiculo}
-                                                               requests.post(link2, json=dados2)   
+                                                               requests.post(link2, json=dados2)
+                                           link3 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/Fotos dos Comrpovantes.json'
+                                           dados3 = {"Fotos dos Comprovantes": st.session_state.fotos}
+                                           requests.post(link3, json=dados3)                                         
                                            st.success('Entrega realizada com Sucesso')
                                               
                                            
