@@ -63,7 +63,7 @@ with seletor1:# Exibe a seleção da data
                           lista_notas = []
                           for item in dados:
                                                   
-                                                  roteiro = dados[f'{item}'][:-1]
+                                                  roteiro = dados[f'{item}']
                                                   for elemento in roteiro:
                                                               nota = roteiro[f'{elemento}']
                                                               data_emit = nota['Data de Emissão']
