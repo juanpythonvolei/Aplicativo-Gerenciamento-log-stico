@@ -34,7 +34,7 @@ with seletor1:# Exibe a seleção da data
      opcao_selecionada_data = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data')
      if opcao_selecionada_data:
                for item in dados:
-                                                  if item != 'Comprovantes'
+                                   if item != 'Comprovantes':
                                                   roteiro = dados[f'{item}']
                                                   for elemento in roteiro:
                                                                    nota = roteiro[f'{elemento}']
