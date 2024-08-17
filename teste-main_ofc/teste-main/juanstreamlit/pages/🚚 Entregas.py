@@ -74,11 +74,11 @@ try:
                                                              valor = nota['Valor Total']
                                                              cliente = nota['Cliente']
                                                              col1, col2 = st.columns([3, 1])                      
-                                                                                   
+                                                             checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)                      
                                                                                        # Usa o dicionário para controlar o estado da checkbox
                                                              
                                                           
-                                                            checkbox_states[numero_nota] = st.checkbox(f"Cliente: {cliente}. Nota: {numero_nota}. Volumes: {volumes}", key=numero_nota)
+                                                            
 
                                                             
                                                              
