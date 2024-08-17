@@ -144,7 +144,7 @@ if opcao_selecionada:
                                       base_url = "https://maps.googleapis.com/maps/api/geocode/json"
                                       params = {
                                                                   "address": address,
-                                                                  "key": 'AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0'  # Substitua pela sua chave de API
+                                                                  "key": st.secrets['firebase']['chave_api_googlemaps']  # Substitua pela sua chave de API
                                                               }
                               
                                       response = requests.get(base_url, params=params)
@@ -168,7 +168,7 @@ if opcao_selecionada:
                         lat_final, lon_final = map(float, destino_info.split(','))  # Obtém as coordenadas do destino
                         
                         # Constrói a URL da matriz de distância
-                        distance_matrix_url = f"https://maps.googleapis.com/maps/api/distancematrix/json?origins={origem_atual[0]},{origem_atual[1]}&destinations={lat_final},{lon_final}&key=AIzaSyCMVv5_0c2dR16BM9r6ppgJ5sHXPD4MEc0"
+                        distance_matrix_url = f"https://maps.googleapis.com/maps/api/distancematrix/json?origins={origem_atual[0]},{origem_atual[1]}&destinations={lat_final},{lon_final}&key={st.secrets['firebase']['chave_api_googlemaps']}"
                         
                         # Faz a requisição
                         response = requests.get(distance_matrix_url)
