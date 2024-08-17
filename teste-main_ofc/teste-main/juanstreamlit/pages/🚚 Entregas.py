@@ -109,7 +109,7 @@ try:
                                                                     link2 = f'https://bancodedadosroteirooficial-default-rtdb.firebaseio.com/bancodedadosroteirooficial/{opcao_selecionada_data}/{elemento}/Veículo.json'
                                                                     dados2 = {"Veículo": veiculo}
                                                                     requests.post(link2, json=dados2)   
-                                                                 else:  
+                                                                  else: 
                                                                            pass   
                                                                       
                                                                  
