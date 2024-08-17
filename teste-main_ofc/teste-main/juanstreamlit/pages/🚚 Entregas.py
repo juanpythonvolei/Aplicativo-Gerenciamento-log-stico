@@ -197,6 +197,6 @@ with seletor2:
                                    if item == 'Comprovantes':
                                         secao = dados[f'{item}']
                                         for item in secao:
-                                             comprovante = item['secao']
+                                             comprovante = item[f'{secao}']
                                              st.write(comprovante)    
       st.selctbox(label='',placeholder = 'selecione uma nota',options = lista_comprovantes)
