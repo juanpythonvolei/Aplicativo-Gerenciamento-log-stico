@@ -46,7 +46,10 @@ with seletor1:
                                                roteiro = dados[f'{item}']
                                                for elemento in roteiro:
                                                            nota = roteiro[f'{elemento}']
-                                                           data_emit = nota['Data de Emissão']
+                                                           try:
+                                                             data_emit = nota['Data de Emissão']
+                                                           except:
+                                                             pass  
                                                            if str(data_emit) == str(opcao_selecionada_data):
                                                                 if nota['Veículo'] =='Indefinido':
                                                                    lista_verificada_nao.append('Indefinido')
