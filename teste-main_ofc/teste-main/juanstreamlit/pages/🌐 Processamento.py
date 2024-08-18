@@ -283,6 +283,7 @@ elif selected == 'Excluir Conjuntos de Notas':
         try:
             dados = roteiro['bancodedadosroteirooficial']
             for item in dados:
+              if item!='Comprovantes':
                         roteiro = dados[f'{item}']
                         lista_total.append(item)
             data_excluir  = st.selectbox("", lista_total,index=None,placeholder='Selecione uma data para exclusão')
