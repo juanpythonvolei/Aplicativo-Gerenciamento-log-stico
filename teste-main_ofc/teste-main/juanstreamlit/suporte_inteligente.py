@@ -20,6 +20,7 @@ def ia(pergunta):
     dados = roteiro['bancodedadosroteirooficial']
     texto_nota = ''
     for item in dados:
+        if item != "Comprovantes":
             roteiro = dados[f'{item}']
             for elemento in roteiro:
                     nota = roteiro[f'{elemento}']
